@@ -38,3 +38,14 @@ It's statically hosted using GitHub Pages, and built using
 3. Commit your changes: `git commit -am 'Add some feature'`
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
+
+## Librerias a usar
+
+Material UI
+
+
+## Trello
+
+Trello <https://trello.com/invite/b/uBg6cEfB/c96d93a16747465eb1b719e0d4ffe363/henry-app>
+
+Vamos a usar SQL Puro
