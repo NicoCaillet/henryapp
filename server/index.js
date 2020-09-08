@@ -1,16 +1,28 @@
-const webpack = require('webpack');
-const WebpackDevServer = require('webpack-dev-server');
+//                       _oo0oo_
+//                      o8888888o
+//                      88" . "88
+//                      (| -_- |)
+//                      0\  =  /0
+//                    ___/`---'\___
+//                  .' \\|     |// '.
+//                 / \\|||  :  |||// \
+//                / _||||| -:- |||||- \
+//               |   | \\\  -  /// |   |
+//               | \_|  ''\---/''  |_/ |
+//               \  .-\__  '-'  ___/-. /
+//             ___'. .'  /--.--\  `. .'___
+//          ."" '<  `.___\_<|>_/___.' >' "".
+//         | | :  `- \`.;`\ _ /`;.`/ - ` : | |
+//         \  \ `_.   \_ __\ /__ _/   .-` /  /
+//     =====`-.____`.___ \_____/___.-`___.-'=====
+//                       `=---='
+//     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+const server = require("./src/app.js");
+const { conn } = require("./src/db.js");
 
-const webpackConfig = require('../webpack.config');
-
-const host = webpackConfig.devServer.host;
-const port = webpackConfig.devServer.port;
-
-const server = new WebpackDevServer(webpack(webpackConfig), webpackConfig.devServer);
-
-server.listen(port, host, (err) => {
-  if (err) {
-    console.log(err);
-  }
-  console.log(`Listening at ${host}:${port}`);
+// Syncing all the models at once.
+conn.sync({ force: false }).then(() => {
+  server.listen(3000, () => {
+    console.log("%s listening at 3000"); // eslint-disable-line no-console
+  });
 });
